@@ -1,0 +1,56 @@
+<main class="resume">
+  <header class="intro">
+    <h1>{{ fullName }}</h1>
+    <p>
+      {{ location }} |
+      {{ phone }} |
+      <a [href]="'mailto:' + email">{{ email }}</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>Personal Profile</h2>
+    <p>{{ profile }}</p>
+  </section>
+
+  <app-profile-card></app-profile-card>
+
+  <section>
+    <h2>Key Skills</h2>
+    <ul>
+      @for (skill of skills; track skill) {
+        <li>{{ skill }}</li>
+      }
+    </ul>
+  </section>
+
+  <section>
+    <h2>Education and Achievements</h2>
+    <ul>
+      @for (education of education; track education) {
+        <li>{{ education }}</li>
+      }
+    </ul>
+  </section>
+
+  <section>
+    <h2>Certificates</h2>
+    <ul>
+      @for (certificates of certificates; track certificates) {
+        <li>{{ certificates }}</li>
+      }
+    </ul>
+  </section>
+
+  <section class="interaction">
+    <h2>Project</h2>
+    <p>Welcome to the Project Section. By clicking the button, you will be directed to one of my recent projects! This web project was created to serve as an informative guide for a property management business hoping to provide needed information and answers to tenants and possible tenants.</p>
+    <button (click)="showMessage()">Click Me</button>
+    <p>{{ message }}</p>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2026 Franchesca Zyreen Sison. All rights reserved.</p>
+  </footer>
+</main>
