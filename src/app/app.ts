@@ -1,13 +1,17 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Header } from './header/header';
 import { ProfileCard } from './profile-card/profile-card';
+import { Skills } from './skills/skills';
+import { Footer } from './footer/footer';
+import { Proficiency } from './proficiency';
 
 @Component({
-  imports: [RouterOutlet, ProfileCard],
   selector: 'app-root',
-  styleUrl: './app.css',
+  imports: [Header, ProfileCard, Skills, Footer],
   templateUrl: './app.html',
+  styleUrl: './app.css'
 })
+
 export class App {
   fullName = 'Franchesca Zyreen Sison';
   location = 'City of San Fernando, Pampanga';
@@ -30,31 +34,48 @@ export class App {
   ];
 
   education = [
-    'College - Holy Angel University - Deans Lister',
-    'Senior High School - Holy Angel University -  with High Honors',
     'Junior High School - St. Scholasticas Academy -  with Honors',
+    'College - Holy Angel University - Deans Lister',
+    'Senior High School - Holy Angel University -  with High Honors'
   ];
 
   certificates = [
-    'compTIA',
+    'CompTIA IT Fundamentals (ITF+) Certification',
     'Introduction to Figma Course - Simplilearn',
     'Introduction to Graphic Design - Simplilearn',
     'Website UI/UX Designing using chatGPT - Simplilearn',
-    'Back-End Developemtn and APIs V8 - Free Code Camp',
-    'End Point Security - Cisco',
+    'Digital Advertising Certified - HubSpot Academy',
+    'Content Marketing Certified - HubSpot Academy',
+    'Exploring IoT with Cisco Packet Tracer Certification - Cisco Networking Academy',
+    'End Point Security Certificate - Cisco Networking Academy',
+    'Legacy JavaScript Algorithms and Data Structure V7 - Free Code Camp',
+    'Back-End Developemtn and APIs V8 - Free Code Camp'
   ];
 
- // message = 'Welcome to my profile!';
- // clickCount = 0;
+  proficiencies: Proficiency[] = [
+    { tool: 'Visual Studio Code', level: 'Advanced' },
+    { tool: 'Canva', level: 'Advanced' },
+    { tool: 'Git and GitHub', level: 'Intermediate' },
+    { tool: 'Node.js and npm', level: 'Intermediate' },
+    { tool: 'MongoDB', level: 'Intermediate' },
+    { tool: 'Vercel', level: 'Intermediate' },
+    { tool: 'XAMPP', level: 'Intermediate' },
+    { tool: 'WIX', level: 'Intermediate' },
+    { tool: 'Angular CLI', level: 'Beginner' }
+  ];
 
- // showMessage() {
- //   this.clickCount++;
- //   this.message = `You clicked the button ${this.clickCount} time(s).`;
+  message = 'Click any skill above to select it.';
 
-  message = 'Click To View My Project!';
-
-  showMessage() {
-    this.message = 'Thank you for checking my project!';
-    window.open("https://mfc-units-sun-2026.vercel.app/", "_blank");
+  // Runs when the Skills component emits a skillSelected event.
+  onSkillSelected(skill: string) {
+    this.message = `You selected: ${skill}`;
   }
 }
+
+ // message = 'Click To View My Project!';
+
+ // showMessage() {
+ //   this.message = 'Thank you for checking my project!';
+ //   window.open("https://mfc-units-sun-2026.vercel.app/", "_blank");
+ // }
+//}

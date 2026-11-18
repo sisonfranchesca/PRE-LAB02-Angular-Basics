@@ -1,28 +1,17 @@
 <main class="resume">
-  <header class="intro">
-    <h1>{{ fullName }}</h1>
-    <p>
-      {{ location }} |
-      {{ phone }} |
-      <a [href]="'mailto:' + email">{{ email }}</a>
-    </p>
-  </header>
+  <app-header
+    [fullName]="fullName"
+    [location]="location"
+    [email]="email"
+    [phone]="phone"
+    [profile]="profile" />
 
-  <section>
-    <h2>Personal Profile</h2>
-    <p>{{ profile }}</p>
-  </section>
+  <app-profile-card />
 
-  <app-profile-card></app-profile-card>
+  <app-skills
+    [skills]="skills"
+    (skillSelected)="onSkillSelected($event)" />
 
-  <section>
-    <h2>Key Skills</h2>
-    <ul>
-      @for (skill of skills; track skill) {
-        <li>{{ skill }}</li>
-      }
-    </ul>
-  </section>
 
   <section>
     <h2>Education and Achievements</h2>
@@ -42,15 +31,20 @@
     </ul>
   </section>
 
+
   <section class="interaction">
+    <h2 class="section-title">Angular Interaction</h2>
+    <p>{{ message }}</p>
+  </section>
+
+  <app-footer
+    [fullName]="fullName"
+    [proficiencies]="proficiencies" />
+</main>
+
+<!--   <section class="interaction">
     <h2>Project</h2>
     <p>Welcome to the Project Section. By clicking the button, you will be directed to one of my recent projects! This web project was created to serve as an informative guide for a property management business hoping to provide needed information and answers to tenants and possible tenants.</p>
     <button (click)="showMessage()">Click Me</button>
     <p>{{ message }}</p>
-  </section>
-
-
-  <footer>
-    <p>&copy; 2026 Franchesca Zyreen Sison. All rights reserved.</p>
-  </footer>
-</main>
+  </section> -->
