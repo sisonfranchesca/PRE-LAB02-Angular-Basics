@@ -1,0 +1,52 @@
+<p>home works!</p>
+
+<main class="resume">
+  <app-header
+    [fullName]="fullName"
+    [location]="location"
+    [email]="email"
+    [phone]="phone"
+    [profile]="profile" />
+
+  <app-profile-card />
+
+  <app-skills
+    [skills]="skills"
+    (skillSelected)="onSkillSelected($event)" />
+
+
+  <section>
+    <h2>Education and Achievements</h2>
+    <ul>
+      @for (education of education; track education) {
+        <li>{{ education }}</li>
+      }
+    </ul>
+  </section>
+
+  <section>
+    <h2>Certificates</h2>
+    <ul>
+      @for (certificates of certificates; track certificates) {
+        <li>{{ certificates }}</li>
+      }
+    </ul>
+  </section>
+
+
+  <section class="interaction">
+    <h2 class="section-title">Angular Interaction</h2>
+    <p>{{ message }}</p>
+  </section>
+
+  <app-footer
+    [fullName]="fullName"
+    [proficiencies]="proficiencies" />
+</main>
+
+<!--   <section class="interaction">
+    <h2>Project</h2>
+    <p>Welcome to the Project Section. By clicking the button, you will be directed to one of my recent projects! This web project was created to serve as an informative guide for a property management business hoping to provide needed information and answers to tenants and possible tenants.</p>
+    <button (click)="showMessage()">Click Me</button>
+    <p>{{ message }}</p>
+  </section> -->
